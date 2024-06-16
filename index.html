@@ -3,175 +3,130 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./Accordion/css/style.css" />
-        <title>ALL My Web Elements</title>
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
+        <div class="box">
+            <h1>Can be open just One Accordion</h1>
+            <ul data-acc data-open-one>
+                <li data-acc-item data-open-acc>
+                    <button data-acc-title type="button" name="open accordion">
+                        <h2>Accordion Title</h2>
+                    </button>
+                    <div data-acc-content>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
 
-            .element_block {
-                border-bottom: 3px solid #312c2c;
-                padding-bottom: 20px;
-            }
-
-            .element_block > h2 {
-                text-align: center;
-                font-size: 40px;
-                font-weight: 700;
-            }
-
-            .element_block > .description {
-                margin-bottom: 10px;
-                text-align: center;
-            }
-
-            .container {
-                max-width: 920px;
-                padding: 0 20px;
-                margin: 0 auto;
-            }
-
-            h2 {
-                font-size: 20px;
-            }
-        </style>
-
-        <div class="container">
-            <section class="element_block">
-                <h2>Accordion</h2>
-
-                <p class="description">===== Can be open just ONE tab =====</p>
-                <ul data-acc data-open-one>
-                    <li>
-                        <details open>
-                            <summary>
-                                <h2 data-acc-title>Accordion Title</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
-                                    <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                                        <path class="vertival_line" d="M 45 90 c -2.761 0 -5 -2.238 -5 -5 V 5 c 0 -2.761 2.239 -5 5 -5 c 2.762 0 5 2.239 5 5 v 80 C 50 87.762 47.762 90 45 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 0, 0); fill-rule: nonzero; opacity: 1" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                        <path d="M 85 50 H 5 c -2.761 0 -5 -2.238 -5 -5 c 0 -2.761 2.239 -5 5 -5 h 80 c 2.762 0 5 2.239 5 5 C 90 47.762 87.762 50 85 50 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 0, 0); fill-rule: nonzero; opacity: 1" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                    </g>
-                                </svg>
-                            </summary>
-                        </details>
-                        <div data-acc-content>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/SuccessKid.jpg" width="420px" style="margin-left: 26px" alt="Success kid" />
-                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
-                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
-                        </div>
-                    </li>
-                    <li>
-                        <details>
-                            <summary>
-                                <h2 data-acc-title>Accordion Title</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
-                                    <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                                        <path class="vertival_line" d="M 45 90 c -2.761 0 -5 -2.238 -5 -5 V 5 c 0 -2.761 2.239 -5 5 -5 c 2.762 0 5 2.239 5 5 v 80 C 50 87.762 47.762 90 45 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 0, 0); fill-rule: nonzero; opacity: 1" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                        <path d="M 85 50 H 5 c -2.761 0 -5 -2.238 -5 -5 c 0 -2.761 2.239 -5 5 -5 h 80 c 2.762 0 5 2.239 5 5 C 90 47.762 87.762 50 85 50 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 0, 0); fill-rule: nonzero; opacity: 1" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                    </g>
-                                </svg>
-                            </summary>
-                        </details>
-                        <div data-acc-content>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/SuccessKid.jpg" width="420px" style="margin-left: 26px" alt="Success kid" />
-                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
-                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
-                        </div>
-                    </li>
-                    <li>
-                        <details>
-                            <summary>
-                                <h2 data-acc-title>Accordion Title</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
-                                    <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                                        <path class="vertival_line" d="M 45 90 c -2.761 0 -5 -2.238 -5 -5 V 5 c 0 -2.761 2.239 -5 5 -5 c 2.762 0 5 2.239 5 5 v 80 C 50 87.762 47.762 90 45 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 0, 0); fill-rule: nonzero; opacity: 1" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                        <path d="M 85 50 H 5 c -2.761 0 -5 -2.238 -5 -5 c 0 -2.761 2.239 -5 5 -5 h 80 c 2.762 0 5 2.239 5 5 C 90 47.762 87.762 50 85 50 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 0, 0); fill-rule: nonzero; opacity: 1" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                    </g>
-                                </svg>
-                            </summary>
-                        </details>
-                        <div data-acc-content>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/SuccessKid.jpg" width="420px" style="margin-left: 26px" alt="Success kid" />
-                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
-                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
-                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
-                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
-                        </div>
-                    </li>
-                </ul>
-
-                <p class="description">===== All tabs can be open =====</p>
-                <ul data-acc>
-                    <li>
-                        <details>
-                            <summary>
-                                <h2 data-acc-title>Accordion Title</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
-                                    <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                                        <path class="vertival_line" d="M 45 90 c -2.761 0 -5 -2.238 -5 -5 V 5 c 0 -2.761 2.239 -5 5 -5 c 2.762 0 5 2.239 5 5 v 80 C 50 87.762 47.762 90 45 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 0, 0); fill-rule: nonzero; opacity: 1" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                        <path d="M 85 50 H 5 c -2.761 0 -5 -2.238 -5 -5 c 0 -2.761 2.239 -5 5 -5 h 80 c 2.762 0 5 2.239 5 5 C 90 47.762 87.762 50 85 50 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 0, 0); fill-rule: nonzero; opacity: 1" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                    </g>
-                                </svg>
-                            </summary>
-                        </details>
-                        <div data-acc-content>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/SuccessKid.jpg" width="420px" style="margin-left: 26px" alt="Success kid" />
-                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
-                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
-                        </div>
-                    </li>
-                    <li>
-                        <details>
-                            <summary>
-                                <h2 data-acc-title>Accordion Title</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
-                                    <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                                        <path class="vertival_line" d="M 45 90 c -2.761 0 -5 -2.238 -5 -5 V 5 c 0 -2.761 2.239 -5 5 -5 c 2.762 0 5 2.239 5 5 v 80 C 50 87.762 47.762 90 45 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 0, 0); fill-rule: nonzero; opacity: 1" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                        <path d="M 85 50 H 5 c -2.761 0 -5 -2.238 -5 -5 c 0 -2.761 2.239 -5 5 -5 h 80 c 2.762 0 5 2.239 5 5 C 90 47.762 87.762 50 85 50 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 0, 0); fill-rule: nonzero; opacity: 1" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                    </g>
-                                </svg>
-                            </summary>
-                        </details>
-                        <div data-acc-content>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/SuccessKid.jpg" width="420px" style="margin-left: 26px" alt="Success kid" />
-                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
-                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
-                        </div>
-                    </li>
-                    <li>
-                        <details>
-                            <summary>
-                                <h2 data-acc-title>Accordion Title</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
-                                    <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                                        <path class="vertival_line" d="M 45 90 c -2.761 0 -5 -2.238 -5 -5 V 5 c 0 -2.761 2.239 -5 5 -5 c 2.762 0 5 2.239 5 5 v 80 C 50 87.762 47.762 90 45 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 0, 0); fill-rule: nonzero; opacity: 1" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                        <path d="M 85 50 H 5 c -2.761 0 -5 -2.238 -5 -5 c 0 -2.761 2.239 -5 5 -5 h 80 c 2.762 0 5 2.239 5 5 C 90 47.762 87.762 50 85 50 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 0, 0); fill-rule: nonzero; opacity: 1" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                    </g>
-                                </svg>
-                            </summary>
-                        </details>
-                        <div data-acc-content>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/SuccessKid.jpg" width="420px" style="margin-left: 26px" alt="Success kid" />
-                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
-                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
-                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
-                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                    </div>
+                </li>
+                <li data-acc-item>
+                    <button data-acc-title type="button" name="open accordion">
+                        <h2>Accordion Title</h2>
+                    </button>
+                    <div data-acc-content>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                    </div>
+                </li>
+                <li data-acc-item>
+                    <button data-acc-title type="button" name="open accordion">
+                        <h2>Accordion Title</h2>
+                    </button>
+                    <div data-acc-content>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <script src="./Accordion/js.js"></script>
+
+        <div class="box">
+            <h1>Can be open All Accordions</h1>
+            <ul data-acc>
+                <li data-acc-item>
+                    <button data-acc-title type="button" name="open accordion">
+                        <h2>Accordion Title</h2>
+                    </button>
+                    <div data-acc-content>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                    </div>
+                </li>
+                <li data-acc-item>
+                    <button data-acc-title type="button" name="open accordion">
+                        <h2>Accordion Title</h2>
+                    </button>
+                    <div data-acc-content>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                    </div>
+                </li>
+                <li data-acc-item>
+                    <button data-acc-title type="button" name="open accordion">
+                        <h2>Accordion Title</h2>
+                    </button>
+                    <div data-acc-content>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h1>One Accordion should be open</h1>
+            <ul data-acc data-one-always-open>
+                <li data-acc-item data-open-acc>
+                    <button data-acc-title type="button" name="open accordion">
+                        <h2>Accordion Title</h2>
+                    </button>
+                    <div data-acc-content>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                    </div>
+                </li>
+                <li data-acc-item>
+                    <button data-acc-title type="button" name="open accordion">
+                        <h2>Accordion Title</h2>
+                    </button>
+                    <div data-acc-content>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                    </div>
+                </li>
+                <li data-acc-item>
+                    <button data-acc-title type="button" name="open accordion">
+                        <h2>Accordion Title</h2>
+                    </button>
+                    <div data-acc-content>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                        <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <script src="./js.js"></script>
     </body>
 </html>

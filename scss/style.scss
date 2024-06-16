@@ -1,0 +1,29 @@
+@import "./fonts";
+@import "./base.scss";
+
+.cards_wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.card {
+    background-color: #845ec2;
+    padding: 30px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 28px;
+
+    color: #fff6ff;
+    cursor: pointer;
+    transition: 0.4s ease;
+    border: 10px solid #f9dca7;
+}
+
+.card:hover {
+    color: #845ec2;
+    background-color: #f9dca7;
+}

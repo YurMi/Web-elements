@@ -14,7 +14,7 @@
         });
 
         parent.addEventListener("click", function (e) {
-            if (e.target.closest("[data-acc-item]")) {
+            if (e.target.closest("[data-acc-item]") && !e.target.closest("[data-acc-content]")) {
                 const thisAccItem = e.target.closest("[data-acc-item]");
 
                 //can be open just One Accordion

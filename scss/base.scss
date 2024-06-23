@@ -54,10 +54,22 @@ textarea {
     span {
         color: #e9e959;
     }
+
+    a {
+        color: blue;
+    }
 }
 
 .box {
     margin-bottom: 80px;
+}
+.box-lib {
+    padding: 30px 0;
+    display: flex;
+    gap: 24px;
+    & > * {
+        flex: 0 1 50%;
+    }
 }
 h1 {
     text-align: center;

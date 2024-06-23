@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Select JS ('Slim Select 2')</h1>
+
+            <div class="source">
+                <div>
+                    <span>GIT: </span>
+                    <a href="https://github.com/brianvoe/slim-select" target="_blank">Link</a>
+                </div>
+                <div>
+                    <span>NPM: </span>
+                    <a href="https://www.npmjs.com/package/slim-select" target="_blank">Link</a>
+                </div>
+                <div>
+                    <span>Web Site: </span>
+                    <a href="https://slimselectjs.com/install#npm" target="_blank">Link</a>
+                </div>
+            </div>
+
+            <div class="box-lib">
+                <textarea disabled style="height: 290px">
+<select name="pets" class="my-select">
+  <option value="dog">Dog</option>
+  <option value="cat">Cat</option>
+  <option value="hamster">Hamster</option>
+  <option value="parrot">Parrot</option>
+  <option value="spider">Spider</option>
+  <option value="goldfish">Goldfish</option>
+</select>   
+                </textarea>
+
+                <textarea disabled style="height: 290px">
+import SlimSelect from "slim-select";
+import "slim-select/styles";
+
+new SlimSelect({
+    select: ".my-select",
+
+    settings: {
+        showSearch: false,
+    },
+
+    events: {
+        afterChange: () => {},
+    },
+});    
+                </textarea>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+@import "../../scss/base.scss";
+
+.slideshow-logo {
+    $Height: 109px;
+
+    height: $Height;
+    position: relative;
+    overflow: hidden;
+    font-size: 0;
+    width: 100%;
+
+    .slideshow-logo__inner {
+        width: max-content;
+        position: absolute;
+        overflow-x: hidden;
+        top: 0;
+        left: 0;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .slideshow-logo__inner > div {
+        margin: 0 32px;
+    }
+
+    .slideshow-logo__inner > div img {
+        max-height: $Height;
+    }
+
+    .slideshow-logo__inner.slideshow-logo__inner--main {
+        animation: moveSlideshow 10s linear infinite;
+    }
+
+    .slideshow-logo__inner.slideshow-logo__inner--second {
+        -ms-transform: translateX(100%);
+        transform: translateX(100%);
+        animation: moveSlideshowSecond 10s linear infinite;
+    }
+
+    &:hover .slideshow-logo__inner {
+        animation-play-state: paused;
+    }
+
+    @keyframes moveSlideshow {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes moveSlideshowSecond {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+}
+
+//======= do not copy ==========
+@font-face {
+    font-family: "Patrick-Hand";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../../fonts/Patrick-Hand.woff2") format("woff2");
+}
+
+body {
+    font-family: "Patrick-Hand";
+}

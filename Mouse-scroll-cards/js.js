@@ -20,7 +20,7 @@ function mouseScrollBlock(containerWithCards) {
     containerWithCards.addEventListener("mousemove", function (e) {
         if (!isDragging) return;
         let x = e.pageX - containerWithCards.offsetLeft;
-        let walk = (x - startX) * 2;
+        let walk = ((x - startX) * 2) * 0.15;
         containerWithCards.scrollLeft = scrollLeft - walk;
     });
 }

@@ -1,0 +1,14 @@
+@import "../../scss/base";
+
+//======= do not copy ==========
+@font-face {
+    font-family: "Patrick-Hand";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../../fonts/Patrick-Hand.woff2") format("woff2");
+}
+
+body {
+    font-family: "Patrick-Hand";
+}

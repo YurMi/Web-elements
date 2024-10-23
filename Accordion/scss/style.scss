@@ -37,16 +37,15 @@
     }
 
     [data-acc-content] {
-        overflow: hidden;
-        transition: max-height 0.4s ease-out;
-    }
-
-    [data-acc-item][data-open-acc] [data-acc-content] {
-        max-height: var(--jsHeight) !important;
+        display: none;
     }
 
     [data-acc-item][data-open-acc] [data-acc-title]::before {
         transform: translateY(-50%) scaleY(-1);
+    }
+
+    &[data-one-always-open] [data-open-acc] [data-acc-title] {
+        cursor: default;
     }
 }
 

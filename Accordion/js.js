@@ -3,53 +3,135 @@
     if (accordionParent.length === 0) return;
 
     accordionParent.forEach((parent) => {
-        const accordionContentBlock = parent.querySelectorAll("[data-acc-content]");
-
-        //set current max-height
-        accordionContentBlock.forEach((element) => {
-            setTimeout(() => {
-                element.style.setProperty("--jsHeight", `${element.offsetHeight}px`);
-                element.style.maxHeight = "0";
-            }, 200);
-        });
+        slideDown(parent.querySelector("[data-open-acc] [data-acc-content]"));
 
         parent.addEventListener("click", function (e) {
             if (e.target.closest("[data-acc-item]") && !e.target.closest("[data-acc-content]")) {
                 const thisAccItem = e.target.closest("[data-acc-item]");
+                const content = thisAccItem.querySelector("[data-acc-content]");
 
-                //can be open just One Accordion
+                // Open only one accordion at a time
                 if (parent.hasAttribute("data-open-one")) {
                     parent.querySelectorAll("[data-acc-item]").forEach((el) => {
                         if (thisAccItem !== el) {
                             el.removeAttribute("data-open-acc");
+                            slideUp(el.querySelector("[data-acc-content]"));
                         }
                     });
-
-                    toggleOpen(thisAccItem);
+                    toggleOpen(content);
                     return;
                 }
 
-                //should be open One Accordion 'Always'
+                // Keep one accordion always open
                 if (parent.hasAttribute("data-one-always-open")) {
-                    parent.querySelectorAll("[data-acc-item]").forEach((el) => {
-                        el.removeAttribute("data-open-acc");
-                    });
+                    if (thisAccItem.closest("[data-open-acc]")) {
+                        return;
+                    }
 
-                    toggleOpen(thisAccItem);
+                    const el = parent.querySelector("[data-open-acc]");
+                    slideUp(el.querySelector("[data-acc-content]"));
+                    el.removeAttribute("data-open-acc");
+                    toggleOpen(content);
                     return;
                 }
 
-                //Ca be open/close all Accordion Items
-                toggleOpen(thisAccItem);
+                // Open/close multiple accordion items
+                toggleOpen(content);
             }
         });
     });
 
     function toggleOpen(el) {
-        if (!el.hasAttribute("data-open-acc")) {
-            el.setAttribute("data-open-acc", "");
+        if (!el.parentElement.hasAttribute("data-open-acc")) {
+            el.parentElement.setAttribute("data-open-acc", "");
+            slideDown(el);
         } else {
-            el.removeAttribute("data-open-acc");
+            el.parentElement.removeAttribute("data-open-acc");
+            slideUp(el);
         }
+    }
+
+    function slideDown(element, duration = 400, easing = "linear") {
+        element.style.display = "block";
+        let height = element.scrollHeight;
+        element.style.height = "0px";
+        element.style.overflow = "hidden";
+
+        const easingFunctions = {
+            linear: function (t) {
+                return t;
+            },
+            easeIn: function (t) {
+                return t * t;
+            },
+            easeOut: function (t) {
+                return t * (2 - t);
+            },
+            easeInOut: function (t) {
+                return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+            },
+        };
+
+        let startTime = null;
+
+        function animate(time) {
+            if (!startTime) startTime = time;
+            let timeElapsed = time - startTime;
+            let progress = Math.min(timeElapsed / duration, 1);
+            let easeProgress = easingFunctions[easing](progress);
+
+            element.style.height = height * easeProgress + "px";
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                element.style.height = "auto";
+                element.style.overflow = "";
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    function slideUp(element, duration = 400, easing = "linear") {
+        let height = element.scrollHeight;
+        element.style.height = height + "px";
+        element.style.overflow = "hidden";
+
+        const easingFunctions = {
+            linear: function (t) {
+                return t;
+            },
+            easeIn: function (t) {
+                return t * t;
+            },
+            easeOut: function (t) {
+                return t * (2 - t);
+            },
+            easeInOut: function (t) {
+                return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+            },
+        };
+
+        let startTime = null;
+
+        function animate(time) {
+            if (!startTime) startTime = time;
+            let timeElapsed = time - startTime;
+            let progress = Math.min(timeElapsed / duration, 1);
+            let easeProgress = easingFunctions[easing](progress);
+
+            element.style.height = height * (1 - easeProgress) + "px";
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                element.style.display = "none";
+                element.style.height = "";
+                element.style.overflow = "";
+            }
+        }
+
+        requestAnimationFrame(animate);
     }
 })();

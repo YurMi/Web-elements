@@ -9,7 +9,7 @@
 
 .card {
     text-align: center;
-    background-color: #845ec2;
+    background-color: $purple;
     padding: 30px;
     min-height: 150px;
     display: flex;
@@ -18,13 +18,13 @@
     border-radius: 20px;
     font-size: 28px;
 
-    color: #fff6ff;
+    color: $pink;
     cursor: pointer;
     transition: 0.4s ease;
-    border: 10px solid #f9dca7;
+    border: 10px solid $hove-yellow;
 }
 
 .card:hover {
-    color: #845ec2;
-    background-color: #f9dca7;
+    color: $purple;
+    background-color: $hove-yellow;
 }

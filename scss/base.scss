@@ -14,7 +14,7 @@ $blue: #2980b9;
 
 body {
     font-family: "Patrick-Hand";
-    background-color: #9b89b3;
+    background-color: $gray-purple;
     padding: 30px 0;
     font-size: 16px;
 }
@@ -27,7 +27,7 @@ a {
 h1 {
     text-align: center;
     font-size: 50px;
-    color: #fefedf;
+    color: $yellow;
     margin-bottom: 30px;
 }
 
@@ -54,17 +54,18 @@ textarea {
     }
 
     span {
-        color: #e9e959;
+        color: $yellow;
     }
 
     a {
-        color: blue;
+        color: $blue;
     }
 }
 
 .box {
     margin-bottom: 80px;
 }
+
 .box-lib {
     padding: 30px 0;
     display: flex;
@@ -72,71 +73,4 @@ textarea {
     & > * {
         flex: 0 1 50%;
     }
-}
-h1 {
-    text-align: center;
-}
-$purple: #845ec2;
-$gray-purple: #9b89b3;
-$light-purple: rgba(239, 239, 239, 0.3);
-$pink: #fff6ff;
-$yellow: #fefedf;
-$hove-yellow: #f9dca7;
-$blue: #2980b9;
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: "Patrick-Hand";
-    background-color: #9b89b3;
-    padding: 30px 0;
-    font-size: 16px;
-}
-
-a {
-    font-family: "Patrick-Hand";
-    text-decoration: none;
-}
-
-h1 {
-    text-align: center;
-    font-size: 50px;
-    color: #fefedf;
-    margin-bottom: 30px;
-}
-
-.container {
-    max-width: 1230px;
-    padding: 0 15px;
-    margin: 0 auto;
-}
-
-textarea {
-    width: 100%;
-    height: 175px;
-    margin-bottom: 30px;
-    border-radius: 30px;
-    padding: 20px;
-    color: #000;
-}
-
-.source {
-    & > * {
-        font-size: 30px;
-    }
-
-    span {
-        color: #e9e959;
-    }
-}
-
-.box {
-    margin-bottom: 80px;
-}
-h1 {
-    text-align: center;
 }

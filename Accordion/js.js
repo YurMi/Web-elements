@@ -3,7 +3,9 @@
     if (accordionParent.length === 0) return;
 
     accordionParent.forEach((parent) => {
-        slideDown(parent.querySelector("[data-open-acc] [data-acc-content]"));
+        if(parent.querySelector("[data-open-acc] [data-acc-content]")){
+			slideDown(parent.querySelector("[data-open-acc] [data-acc-content]"));
+		}
 
         parent.addEventListener("click", function (e) {
             if (e.target.closest("[data-acc-item]") && !e.target.closest("[data-acc-content]")) {

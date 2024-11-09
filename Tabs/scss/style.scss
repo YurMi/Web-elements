@@ -1,10 +1,18 @@
 @import "../../scss/base";
 
+[data-tab-content] {
+	display: none;
+
+	&.active-tab-content {
+		display: block;
+	}
+}
+
+//======= do not copy ==========
 .source {
     margin-bottom: 30px;
 }
 
-//======= do not copy ==========
 @font-face {
     font-family: "Patrick-Hand";
     font-style: normal;

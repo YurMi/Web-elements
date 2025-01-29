@@ -1,6 +1,13 @@
 @import "./fonts";
 @import "./base.scss";
 
+@import "./../Accordion/scss/style.scss";
+@import "./../Flip-Card/scss/style.scss";
+@import "./../Infinity-movement-logo/scss/style.scss";
+@import "./../Select-JS/scss/style.scss";
+@import "./../slideUp-slideDown/scss/style.scss";
+@import "./../Tabs/scss/style.scss";
+
 .cards_wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

@@ -1,11 +1,11 @@
 @import "../../scss/base";
 
-[data-tab-content] {
-	display: none;
+[tab-content] {
+    display: none;
 
-	&.active-tab-content {
-		display: block;
-	}
+    &.active-tab-content {
+        display: block;
+    }
 }
 
 //======= do not copy ==========

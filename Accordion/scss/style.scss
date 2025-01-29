@@ -5,6 +5,8 @@
     padding: 0;
     list-style: none;
 
+    background-color: red !important;
+
     & > :not(:last-child) {
         margin-bottom: 20px;
     }

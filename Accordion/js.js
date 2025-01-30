@@ -1,12 +1,7 @@
 (function () {
     const accordionParent = document.querySelectorAll("[data-acc]");
     if (accordionParent.length === 0) return;
-
     accordionParent.forEach((parent) => {
-        // if(parent.querySelector("[data-open-acc] [data-acc-content]")){
-        // 	slideDown(parent.querySelector("[data-open-acc] [data-acc-content]"));
-        // }
-
         parent.addEventListener("click", function (e) {
             if (e.target.closest("[data-acc-item]") && !e.target.closest("[data-acc-content]")) {
                 const thisAccItem = e.target.closest("[data-acc-item]");
@@ -96,7 +91,7 @@
     }
 
     function slideUp(element, duration = 400, easing = "linear") {
-        element.style.display = "block"; //fix animation ( if block has display:none )
+        // element.style.display = "block"; //fix animation ( if block has display:none )
         let height = element.offsetHeight;
         element.style.height = height + "px";
         element.style.overflow = "hidden";

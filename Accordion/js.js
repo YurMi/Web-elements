@@ -96,7 +96,7 @@
     }
 
     function slideUp(element, duration = 400, easing = "linear") {
-        element.style.display = "block"; //fix animation ( if block has display:block )
+        element.style.display = "block"; //fix animation ( if block has display:none )
         let height = element.offsetHeight;
         element.style.height = height + "px";
         element.style.overflow = "hidden";

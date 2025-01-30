@@ -3,9 +3,9 @@
     if (accordionParent.length === 0) return;
 
     accordionParent.forEach((parent) => {
-        if(parent.querySelector("[data-open-acc] [data-acc-content]")){
-			slideDown(parent.querySelector("[data-open-acc] [data-acc-content]"));
-		}
+        // if(parent.querySelector("[data-open-acc] [data-acc-content]")){
+        // 	slideDown(parent.querySelector("[data-open-acc] [data-acc-content]"));
+        // }
 
         parent.addEventListener("click", function (e) {
             if (e.target.closest("[data-acc-item]") && !e.target.closest("[data-acc-content]")) {
@@ -45,11 +45,11 @@
 
     function toggleOpen(el) {
         if (!el.parentElement.hasAttribute("data-open-acc")) {
-            el.parentElement.setAttribute("data-open-acc", "");
             slideDown(el);
+            el.parentElement.setAttribute("data-open-acc", "");
         } else {
-            el.parentElement.removeAttribute("data-open-acc");
             slideUp(el);
+            el.parentElement.removeAttribute("data-open-acc");
         }
     }
 
@@ -96,7 +96,8 @@
     }
 
     function slideUp(element, duration = 400, easing = "linear") {
-        let height = element.scrollHeight;
+        element.style.display = "block"; //fix animation ( if block has display:block )
+        let height = element.offsetHeight;
         element.style.height = height + "px";
         element.style.overflow = "hidden";
 

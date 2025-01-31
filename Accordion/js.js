@@ -1,7 +1,13 @@
 (function () {
-    const accordionParent = document.querySelectorAll("[data-acc]");
+    const accordionParent = document.querySelectorAll("[data-acc=true]");
     if (accordionParent.length === 0) return;
     accordionParent.forEach((parent) => {
+        //open el [data-acc-content] page is loaded
+        const shouldOpen = parent.querySelector("[data-open-acc] [data-acc-content]");
+        if (shouldOpen) {
+            slideDown(shouldOpen);
+        }
+
         parent.addEventListener("click", function (e) {
             if (e.target.closest("[data-acc-item]") && !e.target.closest("[data-acc-content]")) {
                 const thisAccItem = e.target.closest("[data-acc-item]");

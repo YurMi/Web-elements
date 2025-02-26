@@ -23,13 +23,13 @@
 #### Can be Open just One Accordion Item
 
 ```html
-<ul data-acc data-open-one></ul>
+<ul data-acc="true" data-open-one></ul>
 ```
 
 #### Always open One Accordion Item
 
 ```html
-<ul data-acc data-one-always-open></ul>
+<ul data-acc="true" data-one-always-open></ul>
 ```
 
 #### Open Accordion Item

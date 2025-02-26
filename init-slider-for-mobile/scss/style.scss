@@ -1,0 +1,33 @@
+@import "../../scss/base.scss";
+
+.slider-on-mobile {
+    @media (min-width: 767px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .card {
+        padding: 16px;
+        border: 2px solid $yellow;
+        border-radius: $border-radius;
+        background-color: $light-purple;
+    }
+}
+
+//======= do not copy ==========
+a {
+    color: blue;
+}
+
+@font-face {
+    font-family: "Patrick-Hand";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("./../fonts/Patrick-Hand.woff2") format("woff2");
+}
+
+body {
+    font-family: "Patrick-Hand";
+}

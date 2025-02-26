@@ -1,6 +1,7 @@
 (function () {
-    const accordionParent = document.querySelectorAll("[data-acc=true]");
+    const accordionParent = document.querySelectorAll("[data-acc]");
     if (accordionParent.length === 0) return;
+
     accordionParent.forEach((parent) => {
         //open el [data-acc-content] page is loaded
         const shouldOpen = parent.querySelector("[data-open-acc] [data-acc-content]");
@@ -9,6 +10,7 @@
         }
 
         parent.addEventListener("click", function (e) {
+            if (parent.getAttribute("data-acc") !== "true") return;
             if (e.target.closest("[data-acc-item]") && !e.target.closest("[data-acc-content]")) {
                 const thisAccItem = e.target.closest("[data-acc-item]");
                 const content = thisAccItem.querySelector("[data-acc-content]");
@@ -43,6 +45,75 @@
             }
         });
     });
+
+    //Adaptive Accordion
+    (function () {
+        const accordions = document.querySelectorAll("[data-acc-init-mobile]");
+        if (!accordions.length) return;
+
+        accordions.forEach((acc) => {
+            const openAccEl = acc.querySelectorAll("[data-acc-title]");
+            const dataAccContent = acc.querySelectorAll("[data-acc-content]");
+
+            if (!openAccEl.length || !dataAccContent.length) {
+                console.warn("No elements [data-acc-title] or [data-acc-content]");
+                return;
+            }
+
+            const mediaQuery = window.matchMedia(`(max-width: ${acc.getAttribute("data-acc-init-mobile")})`);
+            let dataAccTitleButton = "";
+            let once = true;
+
+            function doThisCode() {
+                if (mediaQuery.matches) {
+                    //mobile
+                    acc.setAttribute("data-acc", "true");
+
+                    if (once) {
+                        openAccEl.forEach((el) => {
+                            const newElement = document.createElement("button");
+                            newElement.innerHTML = el.innerHTML;
+                            Array.from(el.attributes).forEach((attr) => {
+                                newElement.setAttribute(attr.name, attr.value);
+                                newElement.setAttribute("type", "button");
+                                newElement.setAttribute("title-button", "");
+                            });
+
+                            el.insertAdjacentElement("afterend", newElement);
+                            el.removeAttribute("data-acc-title");
+                        });
+                        dataAccTitleButton = acc.querySelectorAll("[title-button]");
+                        once = false;
+                    }
+
+                    openAccEl.forEach((el) => {
+                        el.style.display = "none";
+                    });
+
+                    dataAccTitleButton.forEach((el) => (el.style.display = "block"));
+                } else {
+                    //desktop
+                    acc.setAttribute("data-acc", "");
+
+                    openAccEl.forEach((el) => (el.style.display = "block"));
+                    dataAccContent.forEach((el) => {
+                        if (getComputedStyle(el).display === "none") {
+                            el.style.removeProperty("display");
+                        }
+                    });
+
+                    if (typeof dataAccTitleButton === "object" && dataAccTitleButton.length) {
+                        dataAccTitleButton.forEach((el) => (el.style.display = "none"));
+                    }
+                }
+            }
+
+            doThisCode();
+
+            if (mediaQuery.addEventListener) mediaQuery.addEventListener("change", doThisCode);
+            else if (mediaQuery.addListener) mediaQuery.addListener(doThisCode);
+        });
+    })();
 
     function toggleOpen(el) {
         if (!el.parentElement.hasAttribute("data-open-acc")) {

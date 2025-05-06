@@ -1,0 +1,23 @@
+{
+    "name": "web-elements",
+    "version": "1.0.0",
+    "description": "<a href='https://yurmi.github.io/Web-elements/'>Link to Preview all Solutions</a>",
+    "main": "index.js",
+    "scripts": {
+        "start": "vite",
+        "build": "npm run clean && vite build",
+        "preview": "vite preview",
+        "clean": "rm -rf dist"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com-my_github:YurMi/Web-elements.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "sass-embedded": "^1.87.0",
+        "vite": "^6.3.5"
+    }
+}

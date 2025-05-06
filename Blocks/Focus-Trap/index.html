@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Focus Trap</title>
+        <link rel="stylesheet" href="./../../dist/assets/index.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="source">
+                <div>
+                    <span>GIT:</span>
+                    <a href="https://github.com/focus-trap/focus-trap" target="_blank">Link</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h1>Activate "Focus trap" for Modal Popup</h1>
+
+                <p style="margin-bottom: 20px">"Focus trap" needed for modal popup. TAB Accessability. Modal is active. So TAB control should be only at modal wrapper, not body content</p>
+
+                <textarea disabled style="height: 300px">
+npm install focus-trap
+
+import {createFocusTrap} from 'focus-trap';
+
+const focusTrap = createFocusTrap(modal, {
+    onActivate: () => {
+        console.log('Trap is active')
+    },
+    onDeactivate: () => {
+        console.log('Trap is off')
+    }
+});
+
+focusTrap.activate(); //activate focusTrap if Modal is active
+focusTrap.deactivate(); // deactivate focusTrap if Modal is off
+                </textarea>
+            </div>
+
+            <div class="box">
+                <h1>Before use "Focus Trap". Hide elements for TAB before Modal is visible</h1>
+                <textarea disabled style="height: 500px">
+function createTabFocusController() {
+    /*
+    Function hide or show elements for TAB.
+    On mobile inputs should be hidden for TAB control, because we do not see inputs at start.
+    On desktop inputs should be vision for TAB control.
+    */
+
+    const elements = modal.querySelectorAll('button, input, select');
+
+    return {
+        hide() {
+            elements.forEach(item => item.setAttribute('tabindex', '-1'))
+        }
+        ,
+        show() {
+            elements.forEach(item => item.removeAttribute('tabindex'))
+        }
+    }
+}
+
+const tabsController = createTabFocusController();
+
+//usage
+tabsController.show();
+focusTrap.activate();
+
+//or
+tabsController.hide();
+focusTrap.deactivate();
+                </textarea>
+            </div>
+        </div>
+    </body>
+</html>

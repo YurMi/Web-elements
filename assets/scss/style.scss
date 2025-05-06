@@ -1,0 +1,35 @@
+@import "./base";
+@import "./../../Blocks/Accordion/scss/style";
+@import "./../../Blocks/Flip-Card/scss/style.scss";
+@import "./../../Blocks/Infinity-movement-logo/scss/style.scss";
+@import "./../../Blocks/Select-JS/scss/style.scss";
+@import "./../../Blocks/slideUp-slideDown/scss/style.scss";
+@import "./../../Blocks/Tabs/scss/style.scss";
+
+.cards_wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.card {
+    text-align: center;
+    background-color: $purple;
+    padding: 30px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 28px;
+
+    color: $pink;
+    cursor: pointer;
+    transition: 0.4s ease;
+    border: 10px solid $hove-yellow;
+}
+
+.card:hover {
+    color: $purple;
+    background-color: $hove-yellow;
+}

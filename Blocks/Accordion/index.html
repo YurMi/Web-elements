@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Accordion</title>
+        <link rel="stylesheet" href="./../../dist/assets/index.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="source">
+                <div>
+                    <span>JS code: </span>
+                    <a href="https://github.com/YurMi/Web-elements/blob/main/Accordion/js.js" target="_blank">Link</a>
+                </div>
+                <div>
+                    <span>Styles Scss: </span>
+                    <a href="https://github.com/YurMi/Web-elements/blob/main/Accordion/scss/style.scss" target="_blank">Link</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h1>Can be open All Accordions</h1>
+                <textarea disabled style="height: 230px">
+<ul data-acc=true>
+    <li data-acc-item data-open-acc>
+        <button data-acc-title type="button" name="open accordion">
+            Accordion Title
+        </button>
+        <div data-acc-content>
+            Your content
+        </div>
+    </li>
+    ...
+</ul>
+                </textarea>
+                <ul data-acc="true">
+                    <li data-acc-item data-open-acc>
+                        <button data-acc-title type="button" name="open accordion">Accordion Title</button>
+                        <div data-acc-content>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                        </div>
+                    </li>
+                    <li data-acc-item>
+                        <button data-acc-title type="button" name="open accordion">Accordion Title</button>
+                        <div data-acc-content>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                        </div>
+                    </li>
+                    <li data-acc-item>
+                        <button data-acc-title type="button" name="open accordion">Accordion Title</button>
+                        <div data-acc-content>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h1>Can be open just One Accordion</h1>
+
+                <textarea disabled style="height: 80px">
+<ul data-acc=true data-open-one>
+                </textarea>
+
+                <ul data-acc="true" data-open-one>
+                    <li data-acc-item data-open-acc>
+                        <button data-acc-title type="button" name="open accordion">Accordion Title</button>
+                        <div data-acc-content>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                        </div>
+                    </li>
+                    <li data-acc-item>
+                        <button data-acc-title type="button" name="open accordion">Accordion Title</button>
+                        <div data-acc-content>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                        </div>
+                    </li>
+                    <li data-acc-item>
+                        <button data-acc-title type="button" name="open accordion">Accordion Title</button>
+                        <div data-acc-content>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h1>One Accordion should be open always</h1>
+
+                <textarea disabled style="height: 80px">
+<ul data-acc=true data-one-always-open>
+                </textarea>
+
+                <ul data-acc="true" data-one-always-open>
+                    <li data-acc-item data-open-acc>
+                        <button data-acc-title type="button" name="open accordion">Accordion Title</button>
+                        <div data-acc-content>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                        </div>
+                    </li>
+                    <li data-acc-item>
+                        <button data-acc-title type="button" name="open accordion">Accordion Title</button>
+                        <div data-acc-content>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                        </div>
+                    </li>
+                    <li data-acc-item>
+                        <button data-acc-title type="button" name="open accordion">Accordion Title</button>
+                        <div data-acc-content>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h1>Made Accordion Only on Mobile</h1>
+                <textarea disabled style="height: 230px">
+<ul data-acc data-acc-init-mobile="767px">
+    <li data-acc-item data-open-acc>
+        <button data-acc-title type="button" name="open accordion">
+            Accordion Title
+        </button>
+        <div data-acc-content>
+            Your content
+        </div>
+    </li>
+    ...
+</ul>
+                </textarea>
+                <ul data-acc data-acc-init-mobile="767px" style="list-style: none">
+                    <li data-acc-item>
+                        <h2 data-acc-title>Accordion Title</h2>
+                        <div data-acc-content>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                        </div>
+                    </li>
+                    <li data-acc-item>
+                        <h2 data-acc-title>Accordion Title</h2>
+                        <div data-acc-content>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                        </div>
+                    </li>
+                    <li data-acc-item>
+                        <h2 data-acc-title>Accordion Title</h2>
+                        <div data-acc-content>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus!</p>
+
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p>Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab consequuntur? Nihil, soluta.</p>
+                            <p><a title="Accessibility using aria-details" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details" target="blank">The 'aria-details' and 'role' attributes have been implemented to ensure accessibility.</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script src="./js.js"></script>
+    </body>
+</html>

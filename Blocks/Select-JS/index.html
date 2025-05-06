@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Select JS</title>
+        <link rel="stylesheet" href="./../../dist/assets/index.css" />
+        <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Select JS ('Slim Select 2')</h1>
+
+            <div class="source">
+                <div>
+                    <span>GIT: </span>
+                    <a href="https://github.com/brianvoe/slim-select" target="_blank">Link</a>
+                </div>
+                <div>
+                    <span>NPM: </span>
+                    <a href="https://www.npmjs.com/package/slim-select" target="_blank">Link</a>
+                </div>
+                <div>
+                    <span>Web Site: </span>
+                    <a href="https://slimselectjs.com/install#npm" target="_blank">Link</a>
+                </div>
+            </div>
+
+            <div class="box-lib">
+                <textarea disabled style="height: 290px">
+<select name="pets" class="my-select">
+  <option value="dog">Dog</option>
+  <option value="cat">Cat</option>
+  <option value="hamster">Hamster</option>
+  <option value="parrot">Parrot</option>
+  <option value="spider">Spider</option>
+  <option value="goldfish">Goldfish</option>
+</select>   
+                </textarea>
+
+                <pre><code class="language-js">
+import SlimSelect from "slim-select";
+import "slim-select/styles";
+
+new SlimSelect({
+    select: ".my-select",
+
+    settings: {
+        showSearch: false,
+    },
+
+    events: {
+        afterChange: () => {},
+    },
+}); 
+                </code></pre>
+            </div>
+
+            <h1>If selected value === 'all' -> clear another values</h1>
+            <div class="box-lib">
+                <div style="flex: 0 1 35%">
+                    <video style="max-width: 100%" controls src="./Запись экрана 2025-04-30 в 14.34.21.mov"></video>
+                </div>
+
+                <pre style="flex: 0 1 65%"><code class="language-js">
+let newOptions = [];
+const select = new SlimSelect({
+    select: '.selector',
+    settings: {
+        showSearch: false,
+        allowDeselect: true,
+    },
+    events: {
+        afterChange: function() {
+            select.setSelected(newOptions.map(item => item.value))
+        },
+        beforeChange: (newVal, oldVal) => {
+            if(oldVal.some(item => item.value === "all")){
+                newOptions = newVal.filter(item => item.value !== 'all')
+            } else {
+                if (newVal.some(item => item.value === "all")) {
+                    newOptions = newVal.filter(item => item.value === 'all')
+                } else {
+                    newOptions = newVal
+                }
+            }
+
+            if(newVal.length === 0){
+                newOptions = [{value: 'all'}]
+            }
+        },
+    },
+});
+</code></pre>
+            </div>
+        </div>
+    </body>
+</html>

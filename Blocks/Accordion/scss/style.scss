@@ -1,0 +1,69 @@
+@import "./../../../assets/scss/base";
+
+[data-acc="true"] {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    & > :not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    [data-acc-title] {
+        position: relative;
+        display: block;
+        cursor: pointer;
+        padding-right: 40px;
+
+        border: none;
+        background-color: transparent;
+        display: block;
+        width: 100%;
+        text-align: start;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background-image: url("/Blocks/Accordion/arr.svg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            transition: 0.4s ease;
+        }
+    }
+
+    [data-acc-item]:not([data-open-acc]) [data-acc-content] {
+        display: none;
+    }
+
+    [data-acc-item][data-open-acc] {
+        [data-acc-title]::before {
+            transform: translateY(-50%) scaleY(-1);
+        }
+    }
+
+    &[data-one-always-open] [data-open-acc] [data-acc-title] {
+        cursor: default;
+    }
+}
+
+//======= do not copy ==========
+
+[data-acc="true"] {
+    [data-acc-item] {
+        background-color: #bdbdbd73;
+        border-radius: 20px;
+    }
+
+    [data-acc-title] {
+        padding: 20px 10px;
+    }
+
+    [data-acc-content] {
+        padding: 0 10px 0;
+    }
+}

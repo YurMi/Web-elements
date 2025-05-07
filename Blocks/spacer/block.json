@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "lb/spacer",
+  "version": "0.1.0",
+  "title": "Spacer",
+  "category": "lb-modules",
+  "description": "Set custom spacer",
+  "supports": {
+    "color": {
+      "background": true,
+      "text": false
+    },
+    "anchor": true,
+    "html": false
+  },
+  "attributes": {
+    "blockHeight": {
+      "type": "string"
+    },
+    "spacerSelectValue": {
+      "type": "string"
+    },
+    "toggle": {
+      "type": "boolean",
+      "default": false
+    },
+    "customDesktopValue": {
+      "type": "string",
+      "default": "80"
+    },
+    "customMobileValue": {
+      "type": "string",
+      "default": "40"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js",
+  "style": "file:./index.css",
+  "render": "file:./render.php"
+}

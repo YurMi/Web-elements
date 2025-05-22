@@ -4,6 +4,8 @@
 
     accordionParent.forEach((parent, idx) => {
         //page is loaded
+
+        //attributes for accessability
         setAttributes(parent, idx);
 
         //open el [data-acc-content]
@@ -12,6 +14,7 @@
             slideDown(shouldOpen);
             //set active attribute
             const openButton = shouldOpen.parentNode.querySelector("[data-acc-title]");
+            //attributes for accessability
             updataAriaExpanded(openButton).active();
         }
 
@@ -43,8 +46,9 @@
                     const el = parent.querySelector("[data-open-acc]");
                     slideUp(el.querySelector("[data-acc-content]"));
                     el.removeAttribute("data-open-acc");
-                    updataAriaExpanded(el.querySelector("[data-acc-title]")).reactive();
                     toggleOpen(contentWrapper);
+                    //attributes for accessability
+                    updataAriaExpanded(el.querySelector("[data-acc-title]")).reactive();
                     return;
                 }
 
@@ -142,18 +146,21 @@
         if (!parent.hasAttribute("data-open-acc")) {
             slideDown(el);
             parent.setAttribute("data-open-acc", "");
+            //attributes for accessability
             if (openAccButton) {
                 updataAriaExpanded(openAccButton).active();
             }
         } else {
             slideUp(el);
             parent.removeAttribute("data-open-acc");
+            //attributes for accessability
             if (openAccButton) {
                 updataAriaExpanded(openAccButton).reactive();
             }
         }
     }
 
+    //set attributes for accessability
     function setAttributes(parent, parentIdx, ariaControlName = "panel", idName = "accordion") {
         if (parent.getAttribute("data-acc") !== "true") return;
 

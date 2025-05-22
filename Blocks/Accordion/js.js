@@ -2,18 +2,25 @@
     const accordionParent = document.querySelectorAll("[data-acc]");
     if (accordionParent.length === 0) return;
 
-    accordionParent.forEach((parent) => {
-        //open el [data-acc-content] page is loaded
+    accordionParent.forEach((parent, idx) => {
+        //page is loaded
+        setAttributes(parent, idx);
+
+        //open el [data-acc-content]
         const shouldOpen = parent.querySelector("[data-open-acc] [data-acc-content]");
         if (shouldOpen) {
             slideDown(shouldOpen);
+            //set active attribute
+            const openButton = shouldOpen.parentNode.querySelector("[data-acc-title]");
+            updataAriaExpanded(openButton).active();
         }
 
         parent.addEventListener("click", function (e) {
             if (parent.getAttribute("data-acc") !== "true") return;
+
             if (e.target.closest("[data-acc-item]") && !e.target.closest("[data-acc-content]")) {
                 const thisAccItem = e.target.closest("[data-acc-item]");
-                const content = thisAccItem.querySelector("[data-acc-content]");
+                const contentWrapper = thisAccItem.querySelector("[data-acc-content]");
 
                 // Open only one accordion at a time
                 if (parent.hasAttribute("data-open-one")) {
@@ -23,7 +30,7 @@
                             slideUp(el.querySelector("[data-acc-content]"));
                         }
                     });
-                    toggleOpen(content);
+                    toggleOpen(contentWrapper);
                     return;
                 }
 
@@ -36,12 +43,13 @@
                     const el = parent.querySelector("[data-open-acc]");
                     slideUp(el.querySelector("[data-acc-content]"));
                     el.removeAttribute("data-open-acc");
-                    toggleOpen(content);
+                    updataAriaExpanded(el.querySelector("[data-acc-title]")).reactive();
+                    toggleOpen(contentWrapper);
                     return;
                 }
 
                 // Open/close multiple accordion items
-                toggleOpen(content);
+                toggleOpen(contentWrapper);
             }
         });
     });
@@ -51,7 +59,7 @@
         const accordions = document.querySelectorAll("[data-acc-init-mobile]");
         if (!accordions.length) return;
 
-        accordions.forEach((acc) => {
+        accordions.forEach((acc, idx) => {
             const openAccEl = acc.querySelectorAll("[data-acc-title]");
             const dataAccContent = acc.querySelectorAll("[data-acc-content]");
 
@@ -77,11 +85,22 @@
                                 newElement.setAttribute(attr.name, attr.value);
                                 newElement.setAttribute("type", "button");
                                 newElement.setAttribute("title-button", "");
-                            });
 
+                                //set accessability attributes
+                                requestAnimationFrame(() => {
+                                    const parentLi = newElement.closest("[data-acc-item]");
+
+                                    if (parentLi.hasAttribute("data-open-acc")) {
+                                        updataAriaExpanded(newElement).active();
+                                    } else {
+                                        updataAriaExpanded(newElement).reactive();
+                                    }
+                                });
+                            });
                             el.insertAdjacentElement("afterend", newElement);
                             el.removeAttribute("data-acc-title");
                         });
+                        setAttributes(acc, idx, "mobile-control-panel", "mobile-accordion");
                         dataAccTitleButton = acc.querySelectorAll("[title-button]");
                         once = false;
                     }
@@ -104,6 +123,7 @@
 
                     if (typeof dataAccTitleButton === "object" && dataAccTitleButton.length) {
                         dataAccTitleButton.forEach((el) => (el.style.display = "none"));
+                        console.log(dataAccTitleButton);
                     }
                 }
             }
@@ -116,13 +136,68 @@
     })();
 
     function toggleOpen(el) {
-        if (!el.parentElement.hasAttribute("data-open-acc")) {
+        const parent = el.parentElement;
+        const openAccButton = parent.querySelector("[data-acc-title]");
+
+        if (!parent.hasAttribute("data-open-acc")) {
             slideDown(el);
-            el.parentElement.setAttribute("data-open-acc", "");
+            parent.setAttribute("data-open-acc", "");
+            if (openAccButton) {
+                updataAriaExpanded(openAccButton).active();
+            }
         } else {
             slideUp(el);
-            el.parentElement.removeAttribute("data-open-acc");
+            parent.removeAttribute("data-open-acc");
+            if (openAccButton) {
+                updataAriaExpanded(openAccButton).reactive();
+            }
         }
+    }
+
+    function setAttributes(parent, parentIdx, ariaControlName = "panel", idName = "accordion") {
+        if (parent.getAttribute("data-acc") !== "true") return;
+
+        const accTitle = parent.querySelectorAll("button[data-acc-title]");
+        const parentNumber = parentIdx + 1;
+
+        if (accTitle.length) {
+            accTitle.forEach((title, idx) => {
+                const parentLi = title.parentNode;
+                const elementNumber = `${parentNumber}-${idx + 1}`;
+                updataAriaExpanded(title).reactive();
+
+                parentLi.setAttribute("itemscope", "");
+                parentLi.setAttribute("itemtype", "https://schema.org/Question");
+
+                title.setAttribute("aria-controls", `${ariaControlName}-${elementNumber}`);
+                title.setAttribute("id", `${idName}-${elementNumber}`);
+                title.setAttribute("itemprop", "name");
+            });
+        }
+
+        const contentWrapper = parent.querySelectorAll("[data-acc-content]");
+        if (contentWrapper.length) {
+            contentWrapper.forEach((el, idx) => {
+                const elementNumber = `${parentNumber}-${idx + 1}`;
+                el.setAttribute("id", `${ariaControlName}-${elementNumber}`);
+                el.setAttribute("itemscope", "");
+                el.setAttribute("itemprop", "acceptedAnswer");
+                el.setAttribute("itemtype", "https://schema.org/Answer");
+            });
+        }
+    }
+
+    function updataAriaExpanded(el) {
+        if (!el) return;
+
+        return {
+            active() {
+                el.setAttribute("aria-expanded", "true");
+            },
+            reactive() {
+                el.setAttribute("aria-expanded", "false");
+            },
+        };
     }
 
     function slideDown(element, duration = 400, easing = "linear") {

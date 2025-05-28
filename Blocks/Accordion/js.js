@@ -5,7 +5,7 @@
     accordionParent.forEach((parent, idx) => {
         //page is loaded
 
-        //attributes for accessability
+        //attributes for accessibility
         setAttributes(parent, idx);
 
         //open el [data-acc-content]
@@ -14,7 +14,7 @@
             slideDown(shouldOpen);
             //set active attribute
             const openButton = shouldOpen.parentNode.querySelector("[data-acc-title]");
-            //attributes for accessability
+            //attributes for accessibility
             updataAriaExpanded(openButton).active();
         }
 
@@ -47,7 +47,7 @@
                     slideUp(el.querySelector("[data-acc-content]"));
                     el.removeAttribute("data-open-acc");
                     toggleOpen(contentWrapper);
-                    //attributes for accessability
+                    //attributes for accessibility
                     updataAriaExpanded(el.querySelector("[data-acc-title]")).reactive();
                     return;
                 }
@@ -90,7 +90,7 @@
                                 newElement.setAttribute("type", "button");
                                 newElement.setAttribute("title-button", "");
 
-                                //set accessability attributes
+                                //set accessibility attributes
                                 requestAnimationFrame(() => {
                                     const parentLi = newElement.closest("[data-acc-item]");
 
@@ -146,21 +146,21 @@
         if (!parent.hasAttribute("data-open-acc")) {
             slideDown(el);
             parent.setAttribute("data-open-acc", "");
-            //attributes for accessability
+            //attributes for accessibility
             if (openAccButton) {
                 updataAriaExpanded(openAccButton).active();
             }
         } else {
             slideUp(el);
             parent.removeAttribute("data-open-acc");
-            //attributes for accessability
+            //attributes for accessibility
             if (openAccButton) {
                 updataAriaExpanded(openAccButton).reactive();
             }
         }
     }
 
-    //set attributes for accessability
+    //set attributes for accessibility
     function setAttributes(parent, parentIdx, ariaControlName = "panel", idName = "accordion") {
         if (parent.getAttribute("data-acc") !== "true") return;
 

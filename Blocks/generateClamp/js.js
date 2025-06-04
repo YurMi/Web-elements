@@ -8,14 +8,9 @@
  */
 export function generateClamp(valMax, valMin, wMax = 1920, wMin = 767) {
     const args = [valMax, valMin, wMax, wMin];
-    if (args.some((arg) => typeof arg !== "number" || isNaN(arg) || !isFinite(arg))) {
+    if (args.some(arg => typeof arg !== 'number' || isNaN(arg) || !isFinite(arg))) {
         console.error(`generateClamp() -> Invalid numeric arguments`, args);
-        return "";
-    }
-
-    if (valMin > valMax || wMin > wMax) {
-        console.error(`generateClamp() -> min/max values are inverted`);
-        return "";
+        return '';
     }
 
     const slope = (valMax - valMin) / (wMax - wMin);
@@ -23,8 +18,15 @@ export function generateClamp(valMax, valMin, wMax = 1920, wMin = 767) {
 
     const slopeVW = slope * 100;
     const interceptREM = intercept / 16;
-    const minREM = valMin / 16;
-    const maxREM = valMax / 16;
+    const minREM = Math.min(valMin, valMax) / 16;
+    const maxREM = Math.max(valMin, valMax) / 16;
 
-    return `clamp(${minREM}rem, calc(${slopeVW}vw + ${interceptREM}rem), ${maxREM}rem)`;
+    const vwPart = `${Math.abs(slopeVW)}vw`;
+    const remPart = `${interceptREM.toFixed(10)}rem`;
+
+    const preferredValue = slopeVW >= 0
+        ? `calc(${remPart} + ${vwPart})`
+        : `calc(${remPart} - ${Math.abs(slopeVW)}vw)`;
+
+    return `clamp(${minREM}rem, ${preferredValue}, ${maxREM}rem)`;
 }

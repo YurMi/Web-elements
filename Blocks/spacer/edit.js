@@ -1,5 +1,5 @@
 import {useBlockProps} from '@wordpress/block-editor';
-import {generateClamp} from '@lichtblick/functions';
+import {generateClamp} from '@functions/functions';
 import MyInspectorControls from "./components/InspectorControls";
 export default function Edit({attributes, setAttributes})
 {

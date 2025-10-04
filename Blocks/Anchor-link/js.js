@@ -13,6 +13,7 @@
     });
 
     function scrollToEl(linkHREF, setTimeOut = 400) {
+        if (linkHREF === '#') return;
         const anchorSection = typeof linkHREF === "object" ? linkHREF : document.querySelector(`${linkHREF}`);
         const headerHeight = document.querySelector(".header")?.offsetHeight || 100;
 
